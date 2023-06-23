@@ -1,0 +1,14 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+}
+
+.row {
+    padding-top: 0.5cm;
+}
+
+.footer p {
+    line-height: 1;
+}

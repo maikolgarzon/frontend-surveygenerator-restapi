@@ -1,0 +1,17 @@
+.container,
+.card,
+.card-body {
+    background-color: white;
+}
+
+.card{
+    border: none;
+}
+
+.fst-img {
+    width: 90%;
+}
+
+.div-border{
+    border: 1px solid grey;
+}

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-primary text-center">
+            <h3>{{loadSurvey.title}}</h3>
+        </div>
+        <div class="card-body">
+            <div class="descripction-survey mb-3">
+                <div class="mb-3">
+                    <label class="text-primary mb-1" for="username">Username:</label>
+                    <input type="text" class="form-control mb-3" name="username" id="username" [(ngModel)]="responseUser.respondentName">
+                    
+                    <label class="text-primary mb-1" for="username">Email (optional):</label>
+                    <input type="text" class="form-control" name="email" id="email" [(ngModel)]="responseUser.email">
+                </div>
+                <textarea name="description" class="form-control mb-3" id="description" cols="55" rows="7"
+                    placeholder="enter the survey description" style="resize: none; width: 100%; height: 40vh;"
+                    readonly>{{loadSurvey.description}}</textarea>
+            </div>
+            <div class="form-survey mb-3">
+                <div class="questions-options">
+                    <div class="questions" *ngFor="let question of loadSurvey.questions; let i = index">
+                        <div class="form-group d-flex align-items-cente mb-2">
+                            <input type="text" class="form-control question-text question-input"
+                                id="question_{{question.id}}" name="question_{{question.id}}"
+                                [(ngModel)]="question.description" readonly>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <ul style="width: 100%; list-style: none;">
+                                    <li class="d-flex align-items-center" *ngFor="let option of question.options; let j = index">
+                                        <input type="radio" style="margin-right: 10px;" name="{{question.id}}"
+                                          [(ngModel)]="option.selectedOption" [value]="option.codeOption" (change)="updateSelectedOption(question, option)">
+                                        <label for="{{option.codeOption}}">{{option.description}}</label>
+                                      </li>
+                                      
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="div-buttons" style="text-align: center;">
+                <button type="submit" class="btn  button-option" (click)="saveResponses()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

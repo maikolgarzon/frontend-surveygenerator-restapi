@@ -1,0 +1,54 @@
+<div class="container row">
+  <div class="card header-color pb-3" style="width: 100%;">
+    <div class="card-header">
+      <h3 class="text-center text-primary">Manage surveys</h3>
+    </div>
+    <div class="options-header mt-2 pt-2">
+      <div class="select-category">
+        <label for="category">Choose category:</label>
+        <select class="form-select" aria-label="Default select example" id="category" name="category"
+          [(ngModel)]="actualCategory" (change)="getSurveys(actualCategory)">
+          <option value=5>All Categories</option>
+          <option *ngFor="let category of categories" [ngValue]="category.id">{{ category.name }}</option>
+        </select>
+      </div>
+      <div class="create-survey">
+        <button type="button" class="btn button-option" routerLinkActive="active" routerLink="/formSurvey">New Survey
+          +</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="surveys p-3"
+        *ngFor="let survey of surveys.reverse() | paginate: { itemsPerPage: 2, currentPage: currentPage, totalItems: surveys.length }">
+        <div class="header-survey">
+          <h5 style="width: 80%;">{{survey.title}}</h5>
+          <div style="font-size: small; font-weight: bold;">Questions: {{ survey.questions.length }}</div>
+        </div>
+        <div class="create-at mb-3">{{survey.createAt}}</div>
+        <div class="card-text survey-description">
+          <p>{{survey.description}}</p>
+        </div>
+        <div class="survey-options mb-2">
+          <a [ngClass]="{ 'disabled-link': survey.questions.length <= 0 }"
+            class="btn btn-survey button-option" routerLinkActive="active"
+            [routerLink]="'/tabulatesurvey/'+survey.codeSurvey">See results</a>
+
+          <a [ngClass]="{ 'disabled-link': survey.questions.length <= 0 }"
+          class="btn button-option btn-survey" (click)="copyLink(survey.codeSurvey)">Get survey link to share</a>
+          
+          <a class="btn button-option btn-survey" routerLinkActive="active"
+            [routerLink]="survey.questions.length >0 ? '/editsurvey/' + survey.id : '/questionoption/' + survey.id">{{survey.questions.length
+            >0 ? 'Edit questions' : 'Create questions'}}</a>
+          <a class="btn button-option btn-survey" (click)="deleteSurvey(survey.id)">Delete survey</a>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+
+</div>

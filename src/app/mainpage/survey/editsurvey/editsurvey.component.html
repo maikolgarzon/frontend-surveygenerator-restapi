@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header text-primary text-center">
+            <h3>Edit Survey</h3>
+        </div>
+        <div class="card-body">
+            <div class="external-div-basic-info mb-3">
+                <div class="text-primary text-rigth subtitle mb-3">
+                    <h5>Basic information</h5>
+                </div>
+                <div class="internal-div-basic-info">
+                    <label class="text-primary" for="title">Title:</label>
+                    <input type="text" class="form-control mb-3" name="title" id="title" [(ngModel)]="loadSurvey.title">
+
+                    <label class="text-primary" for="description">Description:</label>
+                    <textarea name="description" class="form-control mb-3" id="description" cols="55" rows="7"
+                        placeholder="enter the survey description" [(ngModel)]="loadSurvey.description"
+                        style="resize: none; width: 100%; height: 30vh;"></textarea>
+                </div>
+            </div>
+            <div class="external-div-questions mb-3">
+                <div class="text-primary text-rigth mb-3">
+                    <h5>Questions and options</h5>
+                </div>
+                <div class="internal-div-questions">
+                    <div class="questions" *ngFor="let question of loadSurvey.questions; let i = index">
+                        <div class="form-group d-flex align-items-cente mb-2">
+                        <input type="text" class="form-control question-text question-input"
+                            id="question_{{question.id}}" name="question_{{question.id}}"
+                            [(ngModel)]="question.description">
+                            <button class="btn button-option mx-1" type="button" (click)="removeQuestion(i)"><i class="bi bi-trash"></i></button>
+                        </div>
+                        <div class="form-group" *ngFor="let option of question.options; let j = index">
+                            <div class="input-group">
+                                <ul style="width: 100%; list-style: none;">
+                                    <li class="d-flex align-items-center">
+                                        <input type="text" class="form-control option-input option-text"
+                                            name="question{{question.id}}_option{{option.id}}"
+                                            [(ngModel)]="option.description" placeholder="Write your option here">
+                                        <div class="input-group-append d-flex align-items-center">
+                                            <button class="btn button-option mx-1" type="button"
+                                                (click)="removeOption(question, j)"><i class="bi bi-trash"></i></button>
+                                                <button class="btn button-option" type="button" (click)="addOption(question)" 
+                                                style="margin-right: 5px;"><i class="bi bi-plus"></i></button>
+                                        </div>
+                                    </li>
+                                </ul>      
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <button class="btn button-option" type="button" *ngIf="question.options.length < 1" (click)="addOption(question)" 
+                            style="margin-right: 5px;"><i class="bi bi-plus"></i>Add Option</button>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn button-option" type="button" (click)="addQuestion()">
+                            <i class="bi bi-plus"></i>Add Question
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="div-buttons">
+                <button type="submit" class="btn  button-option btn-left" (click)="editSurvey()">Save Changes</button>
+                <button type="button" class="btn  button-option" (click)="close()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

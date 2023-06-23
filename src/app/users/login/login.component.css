@@ -1,0 +1,47 @@
+.row {
+    margin-top: 1cm;
+}
+
+.card-header {
+    text-align: right;
+    border-bottom: none;
+}
+
+.card-header a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.account-section{
+    margin-top: 1cm;
+    text-align: right;
+}
+
+.account-section a {
+    display: block;
+  }
+
+.new-account-link{
+    font-size: small;
+    text-decoration: none;
+}
+
+.recovery-password-link{
+    font-size: small;
+    text-decoration: none;
+    color: dimgray;
+}
+
+.logo {
+    width: 150px;
+    height: 65px;
+}
+
+ .logo-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5cm;
+  }
+
+  

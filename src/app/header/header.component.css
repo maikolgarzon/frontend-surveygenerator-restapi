@@ -1,0 +1,6 @@
+.logo {
+    width: 120px;
+    height: 45px;
+    filter: brightness(0) invert(1);
+    margin-right: 10px;
+}

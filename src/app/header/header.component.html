@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+    <div class="container-fluid font-SmackBoom">
+        <a routerLinkActive="active" routerLink="/">
+            <img src="assets/img/Logo_trans.png" class="img-fluid logo mt-2">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <h5 class="text-white" style="margin-top: 0.5cm;">SurveyApi</h5>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li *ngIf="isLogin" class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" routerLink="/survey">Surveys</a>
+                </li>
+                <a class="nav-link" routerLinkActive="active" [routerLink]="!isLogin ? '/login' : '/profile'">
+                    {{ !isLogin ? (username ? username : 'Login') : username }}
+                </a>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="!isLogin ? '/register' : '/login'" routerLinkActive="active"
+                       (click)="isLogin && logout()"> {{ !isLogin ? 'Register' : 'Logout' }}
+                    </a>
+                </li>                
+            </ul>
+        </div>
+    </div>
+</nav>

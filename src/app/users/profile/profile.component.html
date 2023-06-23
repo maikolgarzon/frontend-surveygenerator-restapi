@@ -1,0 +1,105 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card p-3" style="width: 100%;">
+    <h4 class="atribute-color-text text-center" style="margin-top: 0.5cm;">User Profile</h4>
+    <div class="card-body d-flex flex-column mx-3">
+      <div class="row mb-3">
+        <!--
+        <div class="div-img">
+          <img src="assets/photos/{{profile.photo}}" *ngIf="profile?.photo" class="img-fluid" alt="photouser">
+          <img src="assets/img/nullphoto.png" *ngIf="!profile?.photo" class="img-fluid" alt="photouser">
+          <div class="custom-file">
+            <input (change)="selectPhoto($event)" type="file" class="custom-file-input" id="inputGroupFile04"
+              aria-describedby="inputGroupFileAddon04">
+          </div>
+          <div class="input-group-append">
+            <button (click)="savePhoto()" [disabled]="!photo" class="btn btn-outline-secondary mt-2"
+              [ngClass]="{'btn button-option': true, 'blue': photo}" type="button" id="inputGroupFileAddon04">Save
+              photo</button>
+          </div>
+        </div>
+        <h5 class="atribute-color-text text-center mb-4">User Data</h5>-->
+        <div class="col-sm-4">
+          <label class="atribute-color-text" for="name">Name:</label>
+        </div>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="name" name="name" value="{{ profile.name }}" disabled>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-4">
+          <label class="atribute-color-text" for="surname">Last Name:</label>
+        </div>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="surname" name="surname" value="{{ profile.surname }}" disabled>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-4">
+          <label class="atribute-color-text" for="gender">Gender:</label>
+        </div>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="gender" name="gender" value="{{ profile.gender }}" disabled>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-4">
+          <label class="atribute-color-text" for="email">Email:</label>
+        </div>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="email" name="email" value="{{ profile.email }}" disabled>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-4">
+          <label class="atribute-color-text" for="createAt">Registration Date:</label>
+        </div>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="createAt" name="createAt" value="{{ profile.createAt }}" disabled>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="border-top: none;">
+        <button type="button" class="btn button-option" data-bs-toggle="modal" data-bs-target="#modalProfile">Edit profile</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white text-center">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Update</h1>
+      </div>
+      <div class="modal-body">
+        <form class="form-modal-profile">
+          <div class="form-group">
+            <label class="atribute-color-text" for="modalName">Name:</label>
+            <input type="text" class="form-control mb-3" id="modalName" name="modalName" [(ngModel)]="profile.name" />
+
+            <label class="atribute-color-text" for="modalSurname">Surname:</label>
+            <input type="text" class="form-control mb-3" id="modalSurname" name="modalSurname"
+              [(ngModel)]="profile.surname" />
+
+            <label class="atribute-color-text" for="modalEmail">Email:</label>
+            <input type="text" class="form-control mb-3" id="modalEmail" name="modalEmail"
+              [(ngModel)]="profile.email" />
+
+            <div class="form-group mt-3">
+              <label class="atribute-color-text" for="modalSelect">Gender:</label>
+              <select class="form-select" aria-label="Default select example" id="modalSelect" name="modalSelect"
+                [(ngModel)]="profile.gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" style="border-top: none;">
+        <button type="button" class="btn button-option" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn button-option" (click)="editCurrentProfile()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>

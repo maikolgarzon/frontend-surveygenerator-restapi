@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card col-md-8">
+            <div class="card-header">
+                <h2 class="text-primary">Create new survey</h2>
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="createSurvey()" #surveyForm="ngForm">
+                    <div class="form-group">
+                      <label for="title" class="text-primary mb-1" style="font-weight: bold;">Title:</label>
+                      <input type="text" class="form-control" id="title" name="title" placeholder="Enter the survey title"
+                             [(ngModel)]="newSurvey.title" required #title="ngModel">
+                      <div *ngIf="title.invalid && title.touched" class="text-danger">
+                        Title is required.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="text-primary mb-1" style="font-weight: bold;">Choose
+                            category:</label>
+                        <select class="form-select" aria-label="Default select example" id="category" name="category"
+                            [(ngModel)]="newSurvey.category" required>
+                            <option *ngFor="let category of categories" [ngValue]="category">{{ category.name }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="description" class="text-primary mb-1" style="font-weight: bold;">Description:</label>
+                        <textarea name="description" id="description" cols="55" rows="7" placeholder="Give your readers a description of what your survey is about" 
+                                  [(ngModel)]="newSurvey.description" required #description="ngModel"
+                                  style="resize: none; width: 100%; height: 50vh;"></textarea>
+                        <div *ngIf="description.invalid && description.touched" class="text-danger">
+                          Description is required.
+                        </div>
+                      </div>
+                    
+                      <div class="div-buttons">
+                        <button type="submit" class="btn button-option btn-left" [disabled]="surveyForm.invalid">Create</button>
+                        <button type="button" class="btn button-option" (click)="close()">Cancel</button>
+                      </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

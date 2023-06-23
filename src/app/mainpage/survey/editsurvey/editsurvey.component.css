@@ -1,0 +1,26 @@
+.div-buttons{
+    margin-top: 1cm;
+    text-align: center;
+}
+
+.btn-left{
+    margin-right: 0.2cm;
+}
+
+.question-text{
+    color: #1e81b0;
+}
+
+.option-text{
+    color: black;
+}
+
+.button-option{
+    background-color: #eeeee4; 
+    border: 1px solid #000000; 
+}
+
+.btn:hover{
+    background-color: burlywood;
+    border: 1px solid #000000; 
+}

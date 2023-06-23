@@ -1,0 +1,102 @@
+.header-styles {
+  text-align: center;
+}
+
+/* Mostrar elementos verticalmente en pantallas más grandes */
+@media (min-width: 992px) {
+  .options-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Mostrar elementos verticalmente en pantallas más pequeñas */
+@media (max-width: 991px) {
+  .options-header {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+  }
+
+  .create-survey {
+    margin-top: 0.3cm;
+  }
+}
+
+.select-category label {
+  display: inline-block;
+  width: 180px;
+  /* Puedes ajustar este valor según sea necesario */
+  margin-right: 10px;
+  /* Puedes ajustar este valor según sea necesario */
+  margin-bottom: 10px;
+  vertical-align: middle;
+  /* Para alinear los elementos verticalmente */
+}
+
+.select-category select {
+  display: inline-block;
+  width: 300px;
+  /* Puedes ajustar este valor según sea necesario */
+  padding: 5px;
+  /* Puedes ajustar este valor según sea necesario */
+  vertical-align: middle;
+  /* Para alinear los elementos verticalmente */
+}
+
+.surveys {
+  border: 1px solid gray;
+  margin-bottom: 1cm;
+}
+
+/*@media (min-width: 992px) @media (max-width: 991px)*/
+@media (min-width: 992px) {
+  .header-survey {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 991px) {
+  .header-survey {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+.create-at {
+  font-size: smaller;
+  margin-top: -10px;
+}
+
+.survey-description {
+  text-align: justify;
+}
+
+.survey-options {
+  text-align: right;
+}
+
+.btn-survey {
+  margin-left: 10px;
+}
+
+@media (max-width: 991px) {
+  .btn-survey {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-bottom: 5px;
+
+  }
+}
+
+.disabled-link {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body mt-3 mb-3">
+            <div class="d-flex flex-sm-row flex-column">
+                <div class="div-border col-sm-6 px-2 py-3" style="text-align: center;">
+                    <img class="fst-img" src="assets/img/1st-adv-img.png" alt="1st-adv-img">
+                </div>
+                <div class="fst-adv-paragraph col-sm-6 px-5 d-flex align-items-center">
+                    <div>
+                        <h3 class="text-primary pt-3" style="text-align: center;">Create your own survey</h3>
+                        <p style="text-align: justify;">Welcome! Do you have something important
+                            you want to know? Create your own survey and get direct answers from
+                            your users!</p>
+                        <div style="text-align: center;">
+                            <button type="button" class="btn button-option" routerLinkActive="active"
+                                routerLink="/register">start now for free
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body my-3">
+            <div class="d-flex flex-sm-row flex-column">
+                <div class="fst-adv-paragraph col-sm-6 px-5 d-flex align-items-center">
+                    <div>
+                        <h3 class="text-primary" style="text-align: center;">Analyze your results</h3>
+                        <p style="text-align: justify;">"All participant responses will be analyzed
+                            instantly once the survey is completed. Our system will collect and process
+                            the data efficiently, providing you with precise and detailed results."</p>
+                        <div class="pb-5" style="text-align: center;">
+                            <button type="button" class="btn button-option" routerLinkActive="active"
+                                routerLink="/register">start now for free
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-border col-sm-6 px-2 py-3" style="text-align: center;">
+                    <img class="fst-img" src="assets/img/2st-adv-img.png" alt="1st-adv-img">
+                </div>
+            </div>
+        </div>
+        <div class="card-body div-border w-75 mx-auto my-3">
+            <div class="card-header text-primary mb-4">
+                If you have any comments about the application, feel free to tell us.
+            </div>
+            <form method="post">
+                <div class="form-group">
+                    <label class="atribute-color-text text-left" for="username">Username:</label>
+                    <input type="text" class="form-control mb-3" id="username" name="username"
+                        [(ngModel)]="suggestion.username" required />
+
+                    <label class="atribute-color-text text-left" for="message">Message:</label>
+                    <textarea class="form-control" style="resize: none;" name="message" id="message"
+                        [(ngModel)]="suggestion.message"></textarea>
+                </div>
+                <div class="mt-3 text-center">
+                    <button type="button" class="btn btn-primary" (click)="saveSuggestion()">Save comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

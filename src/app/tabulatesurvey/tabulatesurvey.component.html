@@ -1,0 +1,24 @@
+<div class="container-lg">
+    <div class="card w-90 mb-3">
+        <div class="card-header">
+            <h3 class="text-center text-primary">Survey result</h3>
+        </div>
+        <div class="card-body">
+            <div class="select-question pb-1">
+                <label for="question">Select question:</label>
+                <select class="form-select" aria-label="Default select example" id="question" name="question"
+                    [(ngModel)]="actualQuestion" (ngModelChange)="tabulateData()">
+                    <option *ngFor="let question of questions" [ngValue]="question">{{ question.question }}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="card w-90">
+        <div class="card-canvas p-3">
+            <div class="canvas-container">
+                <canvas id="graphic"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

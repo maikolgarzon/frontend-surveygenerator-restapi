@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="card" style="width: 100%;">
+        <div class="card-header text-primary text-center">
+            <h4>Question and answers</h4>
+        </div>
+        <div class="card-subtitle px-4 pt-3" style="text-align: justify;">
+            Welcome to! In this form you will have the opportunity to create the content of your personalized survey.
+            Here you can add questions and their respective answers, in order to obtain valuable information from your
+            respondents. Let's start creating your survey!
+        </div>
+        <div class="card-body mb-1">
+            <div class="text-primary text-center">
+                <h5>Survey form</h5>
+            </div>
+            <div class="question mb-2" *ngFor="let question of questions; let i = index">
+                <div class="form-group d-flex align-items-cente mb-2">
+                    <input type="text" class="form-control question-input" id="question{{question.id}}"
+                        name="question{{question.id}}" [(ngModel)]="question.description"
+                        placeholder="Write your question here">
+                        <button class="btn button-option mx-1" type="button" (click)="removeQuestion(i)"><i class="bi bi-trash"></i></button>
+                </div>
+                <div class="form-group" *ngFor="let option of question.options; let j = index">
+                    <div class="input-group">
+                        <ul style="width: 100%; list-style: none;">
+                            <li  class="d-flex align-items-center"> 
+                                <input type="text" class="form-control option-input"
+                                    name="question{{question.id}}_option{{option.id}}" [(ngModel)]="option.description"
+                                    placeholder="Write your option here">
+                                <div class="input-group-append d-flex align-items-center">
+                                    <button class="btn button-option mx-1" type="button"
+                                        (click)="removeOption(question, j)"><i class="bi bi-trash"></i></button>
+                                        <button class="btn button-option" type="button" (click)="addOption(question)" 
+                                        style="margin-right: 5px;"><i class="bi bi-plus"></i></button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn button-option" type="button" *ngIf="question.options.length < 1" (click)="addOption(question)" 
+                    style="margin-right: 5px;"><i class="bi bi-plus"></i>Add Option</button>
+                </div>
+            </div>
+            <div>
+                <button class="btn button-option" type="button" (click)="addQuestion()">
+                    <i class="bi bi-plus"></i>Add Question
+                </button>
+            </div>
+        </div>
+        <div class="text-center mb-3">
+            <button class="btn button-option mx-1" type="button" *ngIf="questions.length > 0 && atLeastOneOptionSelected()" 
+                (click)="saveAll()">Save form</button>              
+            <button class="btn  button-option" type="button" (click)="close()">Cancel</button>
+        </div>
+    </div>
+</div>

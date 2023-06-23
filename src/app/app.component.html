@@ -1,0 +1,11 @@
+<ng-container *ngIf="router.url !== '/login' && router.url !== '/register'">
+  <app-header></app-header>
+  <div class="container container-body">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</ng-container>
+
+<ng-container *ngIf="router.url === '/login' || router.url === '/register'">
+  <router-outlet></router-outlet>
+</ng-container>

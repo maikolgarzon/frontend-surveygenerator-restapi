@@ -1,0 +1,17 @@
+.question-input{
+    border: 2px solid #e28743;
+}
+
+.option-input{
+    border: 2px solid #76b5c5;
+}
+
+.button-option{
+    background-color: #eeeee4; 
+    border: 1px solid #000000; 
+}
+
+.btn:hover{
+    background-color: burlywood;
+    border: 1px solid #000000; 
+}
